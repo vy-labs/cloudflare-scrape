@@ -66,11 +66,11 @@ class CloudflareAdapter(HTTPAdapter):
     def get_connection(self, *args, **kwargs):
         conn = super(CloudflareAdapter, self).get_connection(*args, **kwargs)
 
-        if conn.conn_kw.get("ssl_context"):
-            conn.conn_kw["ssl_context"].set_ciphers(DEFAULT_CIPHERS)
-        else:
-            context = create_urllib3_context(ciphers=DEFAULT_CIPHERS)
-            conn.conn_kw["ssl_context"] = context
+        #if conn.conn_kw.get("ssl_context"):
+        #    conn.conn_kw["ssl_context"].set_ciphers(DEFAULT_CIPHERS)
+        #else:
+        #    context = create_urllib3_context(ciphers=DEFAULT_CIPHERS)
+        #    conn.conn_kw["ssl_context"] = context
 
         return conn
 
